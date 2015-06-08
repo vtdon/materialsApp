@@ -1,0 +1,60 @@
+<html lang="en" ng-app="processApp">
+  <head>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+    <link rel="stylesheet" type="text/css" href="processApp.css">
+    <meta name="viewport" content="initial-scale=1" />
+  </head>
+  <body ng-controller="AppCtrl" layout-margin>
+
+    <md-toolbar layout="row">
+      <div class="md-toolbar-tools">
+        <h3>Process App</h1>
+      </div>
+    </md-toolbar>
+
+    <div id="item_body" layout="row" layout-margin layout-padding ng-repeat="item in data.results">
+            
+            <div flex="90" layout="column" layout-margin layout-padding>
+                <div class="md-headline" layout="row" layout-margin layout-align="start center" ng-click="toggleProcessGraph($event)">
+                    <div flex="25">Name</div>
+                    <div flex="20">Code</div>
+                    <div flex="25">Description</div>
+                    <div flex="20">Date</div>
+                </div>
+                <div class="md-subhead" layout="row" layout-margin layout-align="start center">
+                    <div flex="25" id="item_name">{{item.NAME}}</div>
+                    <div flex="20" id="item_code">{{item.CODE}}</div>
+                    <input type="text" flex="25" ng-model="item.DESC" placeholder={{item.DESC}} id="item_desc">
+                    <input type="date" flex="20" ng-model="item.DATE" placeholder="yyyy-MM-dd" id="item_date">
+                </div>
+            </div>
+            
+            <div flex="10" layout-align="start center">
+               <md-button ng-click="sidenavOpen()" class="md-icon-button">
+                    <md-icon aria-label="Detail" md-svg-icon="details"></md-icon>
+                </md-button>
+            </div>
+
+            <md-sidenav class="md-sidenav-right" md-component-id="right">
+              <md-toolbar class="md-theme-light">
+                <h3 class="md-toolbar-tools">Process Graph</h3>
+              </md-toolbar>
+              <img ng-src="{{graphPath}}" style="width: 300px; height: 300px"/>
+              <md-content layout-padding>
+                <md-button ng-click="sidenavClose()" class="md-primary">Close</md-button>
+              </md-content>
+            </md-sidenav>
+
+    </div>
+
+    <!-- Angular Material Dependencies -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.js"></script>
+    
+    <script src="processApp.js"></script>
+  </body>
+</html>

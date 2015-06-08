@@ -1,0 +1,23 @@
+#item_body {
+    box-shadow: 2px 2px 2px Gray;
+    border: 1px solid LightGray;
+}
+
+#item_name {
+    border-bottom: 1px solid LightGray;
+}
+
+#item_code {
+    border-bottom: 1px solid LightGray;
+}
+
+#item_desc {
+    border: none;
+    border-bottom: 1px solid LightGray;
+}
+
+#item_date {
+    border: none;
+    border-bottom: 1px solid LightGray;
+}
+
